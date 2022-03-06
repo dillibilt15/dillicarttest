@@ -27,7 +27,7 @@ class UserBaseController extends Controller
      * @var CLIRequest|IncomingRequest
      */
     protected $request;
-
+    protected $session_ignore_urls=['login-view','login-check'];
     /**
      * An array of helpers to be loaded automatically upon
      * class instantiation. These helpers will be available
@@ -42,6 +42,22 @@ class UserBaseController extends Controller
      */
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
+        $this->session = \Config\Services::session(); 
+        if ( in_array($request->getPath(),$this->session_ignore_urls))
+        {
+
+        }
+        else{
+                // trying to acces admin pages 
+            if ( $this->session->get('user_data'))
+            {
+                
+            }
+            else{
+                //trying without admin login
+                exit;
+            }
+        }
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
 

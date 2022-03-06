@@ -17,6 +17,8 @@ class AdminUser extends AdminBaseController
     }
     public function admin_login_check()
     {
+        $this->session->remove('admin_user_data');
+        $this->session->remove('user_data');
         $email=$this->request->getPost('email');
         $pwd=$this->request->getPost('pwd');
         $this->admin_user_model = new AdminUserModel();

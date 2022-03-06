@@ -35,10 +35,12 @@ $routes->get('admin-plans', 'AdminControllers/AdminPlans::index');
 
 /* User Routes*/
  
-$routes->get('/', 'UserControllers/Home::index');
-$routes->get('login-view', 'UserControllers/Home::login_view');
-$routes->post('login-check', 'UserControllers/Home::login_check');
-$routes->get('ci-default', 'UserControllers/Home::ci_default_page');
+$routes->get('/', 'UserControllers/User::index');
+$routes->get('login-view', 'UserControllers/User::login_view');
+$routes->post('login-check', 'UserControllers/User::login_check');
+$routes->get('ci-default', 'UserControllers/User::ci_default_page');
+
+$routes->get('user-dashboard', 'UserControllers/UserDashboard::index');
 /*end User Routes */
 /*
  * --------------------------------------------------------------------

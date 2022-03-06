@@ -224,7 +224,7 @@
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
 
-                <form>
+                <form id="user_login_form">
 
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
@@ -234,17 +234,17 @@
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
 
                   <div class="form-outline mb-4">
-                    <input type="email" id="form2Example17" class="form-control form-control-lg" />
+                    <input type="email" id="email" name="email" class="form-control form-control-lg" />
                     <label class="form-label" for="form2Example17">Email address</label>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="password" id="form2Example27" class="form-control form-control-lg" />
+                    <input type="password" id="pwd"  name="pwd" class="form-control form-control-lg" />
                     <label class="form-label" for="form2Example27">Password</label>
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+                    <button class="btn btn-dark btn-lg btn-block"  id="btnUseLogin" type="button">Login</button>
                   </div>
 
                   <a class="small text-muted" href="#!">Forgot password?</a>
@@ -264,5 +264,33 @@
 	</div>
 
 </header>
+
+
+<script>
+  $('#btnUseLogin').on('click',function()
+  {
+   
+        $.ajax(
+                {
+                    url: "<?php echo base_url()?>/login-check", 
+                    ContentType: 'application/json',
+                    data: $('#user_login_form').serialize(),
+                    type: 'post',
+                    dataType:'json',
+                   
+                    success: function(result)
+                    {
+                        if (result.status==500)
+                        {
+                            alert('Invalid Credentials');
+                        }
+                       else{
+                        window.location.href = "<?php echo base_url()?>/user-dashboard";
+                       }
+                    }
+                });
+
+  });
+</script>
 </body>
 </html>

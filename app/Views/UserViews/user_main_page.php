@@ -225,92 +225,85 @@
 <body>
 <header>
 
-	<div class="menu">
-	
-	</div>
-
-	<div class="heroe">
-
-		<h1>Welcome to Admin Login</h1>
-     
-        <section class="h-100 gradient-form" style="background-color: #eee;">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-xl-10">
-        <div class="card rounded-3 text-black">
-          <div class="row g-0">
-            <div class="col-lg-6">
-              <div class="card-body p-md-5 mx-md-4">
-
-                <div class="text-center">
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp" style="width: 185px;" alt="logo">
-                  <h4 class="mt-1 mb-5 pb-1">Only for Admins</h4>
-                </div>
-
-                <form id="admin_login_form">
-                  <p>Please login to your account</p>
-
-                  <div class="form-outline mb-4">
-                    <input type="email" id="email"  name="email" class="form-control" placeholder="Email"/>
-                    <label class="form-label" for="email">Email</label>
-                  </div>
-
-                  <div class="form-outline mb-4">
-                    <input type="password" id="pwd"  name="pwd" class="form-control" />
-                    <label class="form-label" for="pwd">Password</label>
-                  </div>
-
-                  for Testing Email: dilliadmin@gmail.com
-                 pwd:12345678
-                  <div class="text-center pt-1 mb-5 pb-1">
-                    <button id="btnAdminLogin" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Log in</button>
-                 
-                  </div>
-
-                </form>
-
-              </div>
-            </div>
-            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
-              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
-                <h4 class="mb-4">We are more than just a company</h4>
-                <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-	</div>
-
 </header>
 
-<script>
-  $('#btnAdminLogin').on('click',function()
-  {
-        $.ajax(
-                {
-                    url: "<?php echo base_url()?>/admin-login-check", 
-                    ContentType: 'application/json',
-                    data: $('#admin_login_form').serialize(),
-                    type: 'post',
-                    dataType:'json',
-                   
-                    success: function(result)
-                    {
-                        if (result.status==500)
-                        {
-                            alert('Invalid Credentials');
-                        }
-                       else{
-                        window.location.href = "<?php echo base_url()?>/admin-dashboard";
-                       }
-                    }
-                });
+<div class="container-fluid overflow-hidden">
+    <div class="row vh-100 overflow-auto">
+        <div class="col-12 col-sm-3 col-xl-2 px-sm-2 px-0 bg-dark d-flex sticky-top" style="background-color:skyblue !important">
+            <div class="d-flex flex-sm-column flex-row flex-grow-1 align-items-center align-items-sm-start px-3 pt-2 text-white">
+                <a href="<?php echo  base_url().'/user-dashboard'?>" class="d-flex align-items-center pb-sm-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5">Dilli Cart<span class="d-none d-sm-inline"> Project</span></span>
+                </a>
+                <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start" id="menu">
+				<li>
+                        <a href="<?php echo  base_url().'/user-dashboard'?>"  class="nav-link px-sm-0 px-2">
+                            <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a href="<?php echo  base_url().'/admin-plans'?>"  class="nav-link px-sm-0 px-2">
+                            <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline">Plans</span></a>
+                    </li>
+                    <li class="dropdown" style="display:none">
+                        <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fs-5 bi-bootstrap"></i><span class="ms-1 d-none d-sm-inline">Bootstrap</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdown">
+                            <li><a class="dropdown-item" href="#">New project...</a></li>
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-sm-0 px-2">
+                            <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline">Products</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-sm-0 px-2">
+                            <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">Customers</span> </a>
+                    </li>
+                </ul>
+                <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
+                    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://github.com/mdo.png" alt="hugenerd" width="28" height="28" class="rounded-circle">
+                        <span class="d-none d-sm-inline mx-1">Joe</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                        <li><a class="dropdown-item" href="#">New project...</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col d-flex flex-column h-sm-100">
+            <main class="row overflow-auto">
+                <div class="col pt-4">
+                    <h3><?php echo $header_title ?></h3>
+                    <p class="lead" style="display:none">An example multi-level sidebar with collasible menu items. The menu functions like an "accordion" where only a single menu is be open at a time.</p>
+                    <hr />
+                 
+                    <?= $this->include($main_content,$data) ?>
 
-  });
+                     
+                </div>
+            </main>
+            <footer class="row bg-light py-4 mt-auto">
+                <div class="col"> Dilli Project </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<script>
+ 
 </script>
 </body>
 </html>
