@@ -29,6 +29,8 @@ $routes->get('admin-login-view', 'AdminControllers/AdminUser::admin_login_view')
 $routes->post('admin-login-check', 'AdminControllers/AdminUser::admin_login_check');
 
 $routes->get('admin-dashboard', 'AdminControllers/AdminDashboard::index');
+
+$routes->get('admin-plans', 'AdminControllers/AdminPlans::index');
 /*end Admin Routes */
 
 /* User Routes*/

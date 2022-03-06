@@ -235,12 +235,12 @@
                     <span class="fs-5">Dilli Cart<span class="d-none d-sm-inline"> Project</span></span>
                 </a>
                 <ul class="nav nav-pills flex-sm-column flex-row flex-nowrap flex-shrink-1 flex-sm-grow-0 flex-grow-1 mb-sm-auto mb-0 justify-content-center align-items-center align-items-sm-start" id="menu">
-                    <li>
-                        <a href="<?php echo  base_url().'/admin-dashboard'?>" data-bs-toggle="collapse" class="nav-link px-sm-0 px-2">
-                            <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+				<li>
+                        <a href="<?php echo  base_url().'/admin-dashboard'?>"  class="nav-link px-sm-0 px-2">
+                            <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span></a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-sm-0 px-2">
+                        <a href="<?php echo  base_url().'/admin-plans'?>"  class="nav-link px-sm-0 px-2">
                             <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline">Plans</span></a>
                     </li>
                     <li class="dropdown" style="display:none">
