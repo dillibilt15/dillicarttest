@@ -245,12 +245,16 @@
                     </li>
                   
                     <li>
-                        <a href="#" class="nav-link px-sm-0 px-2">
-                            <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline">Products</span></a>
+                        <a href="<?php echo  base_url().'/plans'?>" class="nav-link px-sm-0 px-2">
+                            <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline">Plans</span></a>
+                    </li>
+					<li>
+                        <a href="<?php echo  base_url().'/my-cart'?>" class="nav-link px-sm-0 px-2">
+                            <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">My Cart</span> </a>
                     </li>
                     <li>
-                        <a href="#" class="nav-link px-sm-0 px-2">
-                            <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">Customers</span> </a>
+                        <a href="<?php echo  base_url().'/my-ordrs'?>" class="nav-link px-sm-0 px-2">
+                            <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">My Orders</span> </a>
                     </li>
                 </ul>
                 <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">

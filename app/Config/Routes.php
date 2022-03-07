@@ -43,6 +43,10 @@ $routes->get('ci-default', 'UserControllers/User::ci_default_page');
 $routes->get('user-dashboard', 'UserControllers/UserDashboard::index');
 
 $routes->add('user-wallet', 'UserControllers/UserWallet::index');
+
+$routes->add('plans', 'UserControllers/Plans::index');
+$routes->add('my-cart', 'UserControllers/UserCart::index');
+$routes->add('my-orders', 'UserControllers/UserOrders::index');
 /*end User Routes */
 /*
  * --------------------------------------------------------------------
