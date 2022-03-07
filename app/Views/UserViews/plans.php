@@ -83,9 +83,9 @@ function get_card_html($rec,$validity,$type,$price,$sr_id)
                            <div class="card_btn">
                             <input type="button" data-type='. $type.' data-id="'.$sr_id.'" class="btn btn-primary add_to_cart_btn"  value="Add To Cart">
                             <input type="button" data-type='. $type.' data-id="'.$sr_id.'" class="btn btn-primary remove_from_cart_btn"  value="Remove From Cart" style="display:none">
-                            <input type="hidden" id="hdnId" value="'.$rec['id'] .'" />
-                            <input type="hidden" id="hdnCpacity" value="'.$capacity .'" />
-                            <input type="hidden" id="hdnValidity" value="'.$type .'" />
+                            <input type="hidden" class="hdnId" value="'.$rec['id'] .'" />
+                            <input type="hidden" class="hdnCapacity" value="'.$capacity .'" />
+                            <input type="hidden" class="hdnValidity" value="'.$validity .'" />
                             </div>
                             </div>
                         </div>';
@@ -146,21 +146,22 @@ $('.add_to_cart_btn').on('click',function()
 
 $('.remove_from_cart_btn').on('click',function()
 {
-    var card_id='c_'+$(this).data('type')+"_"+$(this).data('id');
-      $(this).hide();
-      $('.'+$(this).data('type')).css('opacity','');
-    $('#'+card_id).find('.add_to_cart_btn').show();
-    $('.'+$(this).data('type')).find('input').prop('disabled', false);
-       
+    remove_cart_api($(this));
+
 });
 
 function add_cart_api(btnObj)
 {
+    var card_id='c_'+$(btnObj).data('type')+"_"+$(btnObj).data('id');
+    var plan_id=$('#'+card_id).find('.hdnId').val();
+    var hdnCapacityVal=$('#'+card_id).find('.hdnCapacity').val();
+    var hdnValidityVal=$('#'+card_id).find('.hdnValidity').val();
+    var f_type_val=$(btnObj).data('type');
     $.ajax(
                 {
                     url: "<?php echo base_url()?>/add-to-cart-item", 
                     ContentType: 'application/json',
-                    data: {},
+                    data: {plan_id:plan_id,capacity:hdnCapacityVal,validity:hdnValidityVal,f_type:f_type_val},
                     type: 'post',
                     dataType:'json',
                    
@@ -172,16 +173,52 @@ function add_cart_api(btnObj)
                         }
                        else{
                             alert('Item Added to cart');
-                            make_opacity_itmes(btnObj)
+                            make_opacity_itmes(btnObj,card_id)
                        }
                     }
                 });
 }
 
-function make_opacity_itmes(btnObj)
+function remove_cart_api(btnObj)
 {
     var card_id='c_'+$(btnObj).data('type')+"_"+$(btnObj).data('id');
-   
+    var plan_id=$('#'+card_id).find('.hdnId').val();
+    var hdnCapacityVal=$('#'+card_id).find('.hdnCapacity').val();
+    var hdnValidityVal=$('#'+card_id).find('.hdnValidity').val();
+    var f_type_val=$(btnObj).data('type');
+    $.ajax(
+                {
+                    url: "<?php echo base_url()?>/remove-cart-item", 
+                    ContentType: 'application/json',
+                    data: {plan_id:plan_id,capacity:hdnCapacityVal,validity:hdnValidityVal,f_type:f_type_val},
+                    type: 'post',
+                    dataType:'json',
+                   
+                    success: function(result)
+                    {
+                        if (result.status==500)
+                        {
+                            alert('There is an error');
+                        }
+                       else{
+                            alert('Item Removed from cart');
+                            remove_opacity_items(btnObj,card_id)
+                       }
+                    }
+                });
+}
+
+function remove_opacity_items(btnObj,card_id)
+{
+  
+      $(btnObj).hide();
+      $('.'+$(btnObj).data('type')).css('opacity','');
+    $('#'+card_id).find('.add_to_cart_btn').show();
+    $('.'+$(btnObj).data('type')).find('input').prop('disabled', false);
+}
+function make_opacity_itmes(btnObj,card_id)
+{
+  
    $('.'+$(btnObj).data('type')).css('opacity','0.5');
    $('#'+card_id).css('opacity','');
    $('.'+$(btnObj).data('type')).find('input').prop('disabled', true);

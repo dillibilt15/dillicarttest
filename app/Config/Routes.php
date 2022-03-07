@@ -48,6 +48,7 @@ $routes->add('plans', 'UserControllers/Plans::index');
 $routes->add('my-cart', 'UserControllers/UserCart::index');
 $routes->add('my-orders', 'UserControllers/UserOrders::index');
 $routes->add('add-to-cart-item', 'UserControllers/UserCart::add_cart_item');
+$routes->add('remove-cart-item', 'UserControllers/UserCart::remove_cart_item');
 
 /*end User Routes */
 /*
