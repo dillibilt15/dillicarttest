@@ -138,15 +138,9 @@ function prepare_table_unlimited($all_records)
     <script>
 $('.add_to_cart_btn').on('click',function()
 {
-    var card_id='c_'+$(this).data('type')+"_"+$(this).data('id');
-   
-    $('.'+$(this).data('type')).css('opacity','0.5');
-    $('#'+card_id).css('opacity','');
-    $('.'+$(this).data('type')).find('input').prop('disabled', true);
 
-    $(this).hide();
-    $('#'+card_id).find('.remove_from_cart_btn').show();
-    $('#'+card_id).find('.remove_from_cart_btn').prop('disabled', false);
+    add_cart_api($(this));
+   
        
 });
 
@@ -159,4 +153,41 @@ $('.remove_from_cart_btn').on('click',function()
     $('.'+$(this).data('type')).find('input').prop('disabled', false);
        
 });
+
+function add_cart_api(btnObj)
+{
+    $.ajax(
+                {
+                    url: "<?php echo base_url()?>/add-to-cart-item", 
+                    ContentType: 'application/json',
+                    data: {},
+                    type: 'post',
+                    dataType:'json',
+                   
+                    success: function(result)
+                    {
+                        if (result.status==500)
+                        {
+                            alert('There is an error');
+                        }
+                       else{
+                            alert('Item Added to cart');
+                            make_opacity_itmes(btnObj)
+                       }
+                    }
+                });
+}
+
+function make_opacity_itmes(btnObj)
+{
+    var card_id='c_'+$(btnObj).data('type')+"_"+$(btnObj).data('id');
+   
+   $('.'+$(btnObj).data('type')).css('opacity','0.5');
+   $('#'+card_id).css('opacity','');
+   $('.'+$(btnObj).data('type')).find('input').prop('disabled', true);
+
+   $(btnObj).hide();
+   $('#'+card_id).find('.remove_from_cart_btn').show();
+   $('#'+card_id).find('.remove_from_cart_btn').prop('disabled', false);
+}
     </script>
