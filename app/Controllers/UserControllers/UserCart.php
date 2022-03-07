@@ -17,11 +17,63 @@ class UserCart extends UserBaseController
         
         $data['main_content']='UserViews/user_cart';
         $data['header_title']='My Cart';
+        $data['cart_details']=array();
+        $data['total_details']=array();
        
-        $data['cart_details']=$this->get_cart_details($loged_in_user_id,$user_cart_model);
+        $user_cart_details=$this->get_cart_details($loged_in_user_id,$user_cart_model);
+
+        if (count( $user_cart_details)>0)
+        {
+            if ($user_cart_details[0]['cart_details']=='')
+            {
+               
+            }
+            else{
+                $data['cart_details']=json_decode($user_cart_details[0]['cart_details']);
+                 $data['total_details']=$this->final_prices ($data['cart_details']);
+            }
+        }
         return view('UserViews/user_main_page',$data);
     }
 
+
+    private function final_prices($cart_details)
+    {
+        $total_price=0;
+        $ul_storage=false;
+        $ul_files=false;
+        foreach($cart_details as $rec)
+        {
+           if ($rec->capacity=='Unlimited')
+           {
+                if ( $rec->f_type=='GB')
+                {
+                    $ul_storage=true;
+                }
+                if ( $rec->f_type=='Files')
+                {
+                    $ul_files=true;
+                }
+           }
+            $total_price= $total_price+$rec->price;
+            
+            
+        }
+        $discount=0;
+        if (($ul_storage==true)&&( $ul_files==true))
+        {
+            $discount=$total_price*10/100;
+        }
+
+        $tax_amount= ($total_price-$discount)*20/100;
+        $grand_total= $total_price-$discount- $tax_amount;
+
+        return array('items_price'=> $total_price,
+                        'discount' =>$discount,
+                        'tax_amount' =>$tax_amount,
+                        'grand_total' =>$grand_total
+    );
+    }
    
    private function get_cart_details($loged_in_user_id,  $user_cart_model )
    {
