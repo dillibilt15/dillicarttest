@@ -41,6 +41,8 @@ $routes->post('login-check', 'UserControllers/User::login_check');
 $routes->get('ci-default', 'UserControllers/User::ci_default_page');
 
 $routes->get('user-dashboard', 'UserControllers/UserDashboard::index');
+
+$routes->add('user-wallet', 'UserControllers/UserWallet::index');
 /*end User Routes */
 /*
  * --------------------------------------------------------------------

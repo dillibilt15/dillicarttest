@@ -240,23 +240,10 @@
                             <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span></a>
                     </li>
                     <li>
-                        <a href="<?php echo  base_url().'/admin-plans'?>"  class="nav-link px-sm-0 px-2">
-                            <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline">Plans</span></a>
+                        <a href="<?php echo  base_url().'/user-wallet'?>"  class="nav-link px-sm-0 px-2">
+                            <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline">Wallet</span></a>
                     </li>
-                    <li class="dropdown" style="display:none">
-                        <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fs-5 bi-bootstrap"></i><span class="ms-1 d-none d-sm-inline">Bootstrap</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdown">
-                            <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
-                        </ul>
-                    </li>
+                  
                     <li>
                         <a href="#" class="nav-link px-sm-0 px-2">
                             <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline">Products</span></a>
@@ -287,13 +274,14 @@
             <main class="row overflow-auto">
                 <div class="col pt-4">
                     <h3><?php echo $header_title ?></h3>
-                    <p class="lead" style="display:none">An example multi-level sidebar with collasible menu items. The menu functions like an "accordion" where only a single menu is be open at a time.</p>
-                    <hr />
-                 
-                    <?= $this->include($main_content,$data) ?>
-
-                     
                 </div>
+				<div class="col pt-4">
+				<span>	Wallet: 	<span style="color:blue;font-weight:bold;font-size:15px"><?php echo $_SESSION['user_data']['w_balance'] ?></span></span>
+				</div>
+				<div>
+				<hr />
+				</div>
+				<?= $this->include($main_content,$data) ?>
             </main>
             <footer class="row bg-light py-4 mt-auto">
                 <div class="col"> Dilli Project </div>
