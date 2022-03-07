@@ -27,7 +27,7 @@ class UserBaseController extends Controller
      * @var CLIRequest|IncomingRequest
      */
     protected $request;
-    protected $session_ignore_urls=['login-view','login-check'];
+    protected $session_ignore_urls=['login-view','login-check',"/"];
     /**
      * An array of helpers to be loaded automatically upon
      * class instantiation. These helpers will be available
