@@ -68,12 +68,19 @@ class UserOrders extends UserBaseController
         "tax_percent"=> TAX_PERCENTAGE,
         );
 
-        
-        
+        $order_id=0;
+        $cart_main_id= $user_cart_details[0]['id'];
         $user_order_model = new OrdersModel();
-        $user_order_model->create_order($order_data,$cart_item_details);
-      
+       $status= $user_order_model->create_order($order_data,$cart_item_details,$user_data[0]['w_balance'],$order_id, $cart_main_id);
 
+       if ( $status)
+       {
+        echo json_encode(array('status'=>200,'message'=>'Order Created Succesfully.<br/> Your Order No:'.$order_id));
+       }
+      else{
+        echo json_encode(array('status'=>500,'message'=>'There is some technical error.'));
+      }
+      exit();
         
 
     }

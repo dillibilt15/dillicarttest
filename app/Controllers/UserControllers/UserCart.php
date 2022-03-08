@@ -89,7 +89,7 @@ class UserCart extends UserBaseController
             );
        if ( $user_cart_details)
        {
-            if ( $user_cart_model->update($loged_in_user_id,$user_cart_data) )
+            if ( $user_cart_model->update($user_cart_details[0]['id'],$user_cart_data) )
             { 
                 echo json_encode(array('status'=>200));
                 exit();
@@ -159,7 +159,7 @@ class UserCart extends UserBaseController
                     "user_id"=>$loged_in_user_id,
                     "cart_details"=> json_encode($final_db),
                     );
-        if ( $user_cart_model->update($loged_in_user_id,$user_cart_data) )
+        if ( $user_cart_model->update($user_cart_details[0]['id'],$user_cart_data) )
             { 
                 echo json_encode(array('status'=>200));
                 exit();

@@ -106,12 +106,13 @@ function prepare_cart_table($cart_details)
                    
                     success: function(result)
                     {
+                        alert(result.message);
                         if (result.status==500)
                         {
-                            alert(result.message);
+                           
                         }
                        else{
-                            alert('Order created Succesfully');
+                        window.location.href = "<?php echo base_url()?>/my-orders";
                            
                        }
                     }

@@ -10,7 +10,7 @@ class OrdersModel extends Model
 
     protected $allowedFields=["user_id","items_price","order_dt","discount","tax_amount","grand_total","tax_percent"];
 
-public function create_order($order_data,$cart_item_details)
+public function create_order($order_data,$cart_item_details,$cuurent_balance,&$order_id, $cart_main_id)
 {
     try{
         $this->db->transBegin();
@@ -40,6 +40,13 @@ public function create_order($order_data,$cart_item_details)
 
         }
         
+        $user_model=new UserModel();
+
+        $balance=$cuurent_balance - $order_data['grand_total'];
+        $user_model->update($order_data['user_id'],array('w_balance'=>$balance));
+
+        $user_cart_model=new UserCartModel();
+        $user_cart_model->delete( $cart_main_id);
     
         if ($this->db->transStatus() === FALSE)	{
             $this->db->transRollback();
@@ -47,13 +54,15 @@ public function create_order($order_data,$cart_item_details)
             return false;
         } else {
             $this->db->transCommit();
-            
+            $_SESSION['user_data']['w_balance'] =$balance;
             return true;
         }
     }
     catch(\Exception $e) 
     {
         $this->db->transRollback();
+          
+        return false;
     }
   
 }
