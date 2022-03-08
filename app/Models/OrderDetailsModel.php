@@ -7,7 +7,7 @@ class OrderDetailsModel extends Model
     protected $primaryKey = 'id';
 
 
-    protected $allowedFields=["order_id","item_name","item_plan_type","transaction_dt","item_capacity","item_amount","qty"];
+    protected $allowedFields=["order_id","item_name","validity","transaction_dt","item_capacity","item_amount","qty"];
 }
 
 ?>

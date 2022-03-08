@@ -108,7 +108,7 @@ function prepare_cart_table($cart_details)
                     {
                         if (result.status==500)
                         {
-                            alert('There is No sufficiant Balance in your wallet');
+                            alert(result.message);
                         }
                        else{
                             alert('Order created Succesfully');
