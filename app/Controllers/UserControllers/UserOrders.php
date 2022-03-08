@@ -22,13 +22,19 @@ class UserOrders extends UserBaseController
 
     }
 
-    public function create_order()
+    public function create_order_by_wallet()
     {
+        
+        $user_cart_model = new UserCartModel();
+        $user_cart_details= get_cart_details($loged_in_user_id,$user_cart_model);
+
+
         $user_order_model = new OrdersModel();
         $user_order_details_model = new OrderDetailsModel();
 
     }
     
+   
 }
 
 ?>

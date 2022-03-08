@@ -22,7 +22,7 @@ class Plans extends UserBaseController
        
         $loged_in_user_id=$this->session->get('user_data')['id'];
        
-        $user_cart_details=$this->get_cart_details($loged_in_user_id,$user_cart_model);
+        $user_cart_details=get_cart_details($loged_in_user_id,$user_cart_model);
         if (count( $user_cart_details)>0)
         {
             if ($user_cart_details[0]['cart_details']=='')
@@ -43,12 +43,7 @@ class Plans extends UserBaseController
 
         return view('UserViews/user_main_page',$data);
     }
-    private function get_cart_details($loged_in_user_id,  $user_cart_model )
-    {
-        
-         $multiClause = array('user_id' =>$loged_in_user_id);
-         return $user_cart_model->where($multiClause)->orderBy('id','desc')->findAll();
-    }
+    
  
    
 

@@ -58,6 +58,7 @@ class UserBaseController extends Controller
                 exit;
             }
         }
+        helper(['common_functions']);
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
 
