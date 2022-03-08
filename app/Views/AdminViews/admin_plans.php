@@ -1,3 +1,4 @@
+<P style="color:red;font-weight:bold"> Sorry . Not implemented plans adding and Update. Dont have time.Plans added in Database.Belwo plans are coming from Database onlt</p>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
     <button class="nav-link active" id="storage-tab" data-bs-toggle="tab" data-bs-target="#storage" 

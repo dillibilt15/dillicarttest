@@ -27,7 +27,7 @@ $routes->setAutoRoute(true);
 /* Admin Routes */
 $routes->get('admin-login-view', 'AdminControllers/AdminUser::admin_login_view');
 $routes->post('admin-login-check', 'AdminControllers/AdminUser::admin_login_check');
-$routes->add('admin-user-logout', 'UserControllers/User::admin_user_logout');
+$routes->add('admin-user-logout', 'AdminControllers/AdminUser::admin_user_logout');
 
 $routes->get('admin-dashboard', 'AdminControllers/AdminDashboard::index');
 

@@ -249,19 +249,23 @@
 
                 <form id="admin_login_form">
                   <p>Please login to your account</p>
+				  Admin Login Details 
+				  <p>Email:<span style="color:blue"> dilliadmin@gmail.com</span></p>
+                 <p>	pwd: <span style="color:blue">12345678</span></p>
 
                   <div class="form-outline mb-4">
+				  <label class="form-label" for="email">Email</label>
                     <input type="email" id="email"  name="email" class="form-control" placeholder="Email"/>
-                    <label class="form-label" for="email">Email</label>
+                   
                   </div>
 
                   <div class="form-outline mb-4">
+				  <label class="form-label" for="pwd">Password</label>
                     <input type="password" id="pwd"  name="pwd" class="form-control" />
-                    <label class="form-label" for="pwd">Password</label>
+                    
                   </div>
 
-                  for Testing Email: dilliadmin@gmail.com
-                 pwd:12345678
+               
                   <div class="text-center pt-1 mb-5 pb-1">
                     <button id="btnAdminLogin" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Log in</button>
                  
