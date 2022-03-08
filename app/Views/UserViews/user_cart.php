@@ -85,7 +85,37 @@ function prepare_cart_table($cart_details)
 <?php } ?>
 
 
-
+<div>
+    <input type="button" value="Pay with wallet"  class="btn btn-primary"  id="btnPayWallet" />
+</div>
 
 
 </div>
+
+
+<script>
+    $('#btnPayWallet').on('click',function(){
+
+        $.ajax(
+                {
+                    url: "<?php echo base_url()?>/pay-with-wallet", 
+                    ContentType: 'application/json',
+                    data: {},
+                    type: 'post',
+                    dataType:'json',
+                   
+                    success: function(result)
+                    {
+                        if (result.status==500)
+                        {
+                            alert('There is No sufficiant Balance in your wallet');
+                        }
+                       else{
+                            alert('Order created Succesfully');
+                           
+                       }
+                    }
+                });
+    });
+   
+</script>

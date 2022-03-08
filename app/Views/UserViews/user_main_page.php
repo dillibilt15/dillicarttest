@@ -253,7 +253,7 @@
                             <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">My Cart</span> </a>
                     </li>
                     <li>
-                        <a href="<?php echo  base_url().'/my-ordrs'?>" class="nav-link px-sm-0 px-2">
+                        <a href="<?php echo  base_url().'/my-orders'?>" class="nav-link px-sm-0 px-2">
                             <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">My Orders</span> </a>
                     </li>
                 </ul>
