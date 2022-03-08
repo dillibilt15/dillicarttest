@@ -12,7 +12,7 @@
 </div>
 </div>
 
-
+<div> Wallet Transaction History </div>
 <div>
     <table class="table">
         <thead>

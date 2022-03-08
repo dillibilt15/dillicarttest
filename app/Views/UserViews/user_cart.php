@@ -33,9 +33,12 @@ function prepare_cart_table($cart_details)
 
 
 <div style="font-weight:bold;color:blue;font-size:20px;text-align:center">
+
+<p style="color:red">Requirment: UL plans for A & B All in one for Monthly rs1900 and for yearly 10% discount.</p>
+<p style="magin-bottom:20px"> Above point is not clear . At present it will work if user select one unlimited(Month or Year) from sotrage and one unlimited from Files (Month or Year) then givng 10% discount.</p>
 <?php if (empty($cart_details))
     {
-        return 'There is no cart items';
+        echo '<p style="magin-bottom:20px;color:red" class="card"> There is no cart items</p>';
     }
     else{?>
     

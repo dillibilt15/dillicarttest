@@ -232,7 +232,7 @@
                   </div>
 
                   <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
-				<span style="font-size:18px">Use email id: <span style="color:blue">dilliuser1@gmail.com</span><br/>
+				<span style="font-size:18px">Use email id: <span style="color:blue">user1@gmail.com</span><br/>
 				pwd:   <span style="color:blue">12345678</span></span>
                   <div class="form-outline mb-4">
                     <input type="email" id="email" name="email" class="form-control form-control-lg" />

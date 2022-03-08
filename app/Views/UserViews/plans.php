@@ -1,3 +1,14 @@
+
+
+<p style="magin-bottom:20px;color:blue"> 
+At Present User can select only one plan from Storage and one plan from Files.
+Hosting Plans not implemented because there is no specific requirements.
+</p>
+<p style="magin-bottom:20px;color:red;font-weight:bold"> 
+Generally I don't prefer horizontal database table design. Always prefer vertical table Design.
+First time intentionally I have used Horizontal database table design (For Plans Table) to know  more pros and cons.
+That's the reason  code complexity increased here.
+</p>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
     <button class="nav-link active" id="storage-tab" data-bs-toggle="tab" data-bs-target="#storage" 

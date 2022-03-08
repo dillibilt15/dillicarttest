@@ -280,7 +280,7 @@
                     <h3><?php echo $header_title ?></h3>
                 </div>
 				<div class="col pt-4">
-				<span>	Wallet: 	<span style="color:blue;font-weight:bold;font-size:15px"><?php echo $_SESSION['user_data']['w_balance'] ?></span></span>
+				<span>	Wallet: 	<span style="color:blue;font-weight:bold;font-size:15px">Rs. <?php echo number_format($_SESSION['user_data']['w_balance'],2) ?></span></span>
 				</div>
 				<div>
 				<hr />
