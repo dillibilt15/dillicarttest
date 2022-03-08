@@ -16,8 +16,9 @@ class UserOrders extends UserBaseController
         
         $data['main_content']='UserViews/my_orders';
         $data['header_title']='My Orders';
-        $data['cart_details']=array();
-        $data['total_details']=array();
+      
+        $multiClause = array('user_id' =>$loged_in_user_id);
+        $data['orders']= $user_order_model->where($multiClause)->orderBy('id','desc')->findAll();
 
         return view('UserViews/user_main_page',$data);
 

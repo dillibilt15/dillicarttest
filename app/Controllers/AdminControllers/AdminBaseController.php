@@ -55,12 +55,14 @@ class AdminBaseController extends Controller
             {
                 if ( $this->session->get('admin_user_data')['is_admin']=="0")
                 {
-                    exit;
+                    //$this->load->helper('url');
+                        header('Location:'.base_url());
+                        exit();
                 }
             }
             else{
-                //trying without admin login
-                exit;
+                header('Location:'.base_url());
+                        exit();
             }
         }
         

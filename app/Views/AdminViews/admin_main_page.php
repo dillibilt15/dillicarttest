@@ -243,28 +243,11 @@
                         <a href="<?php echo  base_url().'/admin-plans'?>"  class="nav-link px-sm-0 px-2">
                             <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline">Plans</span></a>
                     </li>
-                    <li class="dropdown" style="display:none">
-                        <a href="#" class="nav-link dropdown-toggle px-sm-0 px-1" id="dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fs-5 bi-bootstrap"></i><span class="ms-1 d-none d-sm-inline">Bootstrap</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdown">
-                            <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
-                        </ul>
+					<li>
+                        <a href="<?php echo  base_url().'/admin-user-logout'?>" class="nav-link px-sm-0 px-2">
+                            <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">Logout</span> </a>
                     </li>
-                    <li>
-                        <a href="#" class="nav-link px-sm-0 px-2">
-                            <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline">Products</span></a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link px-sm-0 px-2">
-                            <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">Customers</span> </a>
-                    </li>
+                   
                 </ul>
                 <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">

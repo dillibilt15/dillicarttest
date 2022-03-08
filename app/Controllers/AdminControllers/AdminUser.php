@@ -36,6 +36,17 @@ class AdminUser extends AdminBaseController
        
     }
 
+    public function admin_user_logout()
+    {
+        $this->session->remove('admin_user_data');
+        $this->session->remove('user_data');
+        return redirect()->to(site_url());
+
+
+
+    }
+    
    
 }
+
 ?>

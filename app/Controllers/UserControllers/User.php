@@ -38,7 +38,15 @@ class User extends UserBaseController
     }
 
     
-    
+    public function user_logout()
+    {
+        $this->session->remove('admin_user_data');
+        $this->session->remove('user_data');
+        return redirect()->to(site_url());
+
+
+
+    }
     
     
     

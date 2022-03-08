@@ -43,6 +43,11 @@ class UserBaseController extends Controller
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
         $this->session = \Config\Services::session(); 
+        helper(['common_functions','url']);
+      
+        
+        // Do Not Edit This Line
+        parent::initController($request, $response, $logger);
         if ( in_array($request->getPath(),$this->session_ignore_urls))
         {
 
@@ -54,13 +59,13 @@ class UserBaseController extends Controller
                 
             }
             else{
-                //trying without admin login
-                exit;
+                //$this->load->helper('url');
+                header('Location:'.base_url().'/login-view');
+                exit();
+                //return redirect()->to('url'); 
+            
             }
         }
-        helper(['common_functions']);
-        // Do Not Edit This Line
-        parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
 

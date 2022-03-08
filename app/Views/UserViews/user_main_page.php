@@ -256,8 +256,12 @@
                         <a href="<?php echo  base_url().'/my-orders'?>" class="nav-link px-sm-0 px-2">
                             <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">My Orders</span> </a>
                     </li>
+					<li>
+                        <a href="<?php echo  base_url().'/user-logout'?>" class="nav-link px-sm-0 px-2">
+                            <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">Logout</span> </a>
+                    </li>
                 </ul>
-                <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1">
+                <div class="dropdown py-sm-4 mt-sm-auto ms-auto ms-sm-0 flex-shrink-1" style="display:none">
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://github.com/mdo.png" alt="hugenerd" width="28" height="28" class="rounded-circle">
                         <span class="d-none d-sm-inline mx-1">Joe</span>

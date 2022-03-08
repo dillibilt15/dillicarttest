@@ -35,7 +35,7 @@
         }
 
         $tax_amount= ($total_price-$discount)*TAX_PERCENTAGE/100;
-        $grand_total= $total_price-$discount- $tax_amount;
+        $grand_total= $total_price-$discount+ $tax_amount;
 
         return array('items_price'=> $total_price,
                         'discount' =>$discount,

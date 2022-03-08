@@ -27,6 +27,7 @@ $routes->setAutoRoute(true);
 /* Admin Routes */
 $routes->get('admin-login-view', 'AdminControllers/AdminUser::admin_login_view');
 $routes->post('admin-login-check', 'AdminControllers/AdminUser::admin_login_check');
+$routes->add('admin-user-logout', 'UserControllers/User::admin_user_logout');
 
 $routes->get('admin-dashboard', 'AdminControllers/AdminDashboard::index');
 
@@ -52,6 +53,8 @@ $routes->add('remove-cart-item', 'UserControllers/UserCart::remove_cart_item');
 
 $routes->add('my-orders', 'UserControllers/UserOrders::index');
 $routes->add('pay-with-wallet', 'UserControllers/UserOrders::create_order_by_wallet');
+
+$routes->add('user-logout', 'UserControllers/User::user_logout');
 
 /*end User Routes */
 /*

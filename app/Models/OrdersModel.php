@@ -47,6 +47,18 @@ public function create_order($order_data,$cart_item_details,$cuurent_balance,&$o
 
         $user_cart_model=new UserCartModel();
         $user_cart_model->delete( $cart_main_id);
+
+
+        $user_his_data=array(
+            "user_id"=>$order_data['user_id'],
+            "amount"=> $order_data['grand_total'],
+            "balance"=>  $balance,
+            "type"=>"Purchase",
+            "transaction_dt"=>date('Y-m-d H:i'),
+            "description" =>"Purchase Order Id -".$order_id
+        );
+        $user_wale_his_model=new UserWalletHistoryModel();
+        $user_wale_his_model->insert( $user_his_data);
     
         if ($this->db->transStatus() === FALSE)	{
             $this->db->transRollback();

@@ -82,12 +82,13 @@ function prepare_cart_table($cart_details)
     </table>
 </div>
 
-<?php } ?>
-
-
 <div>
     <input type="button" value="Pay with wallet"  class="btn btn-primary"  id="btnPayWallet" />
 </div>
+<?php } ?>
+
+
+
 
 
 </div>
